@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $nome = "juliano";
-    return view('welcome', compact('nome'));
+    return view('welcome');
 });
+
+Route::get('/products/{id}', function ($id) {
+    $search = request('search');
+    return view('product', compact('id', 'search'));
+})->where('id', '[0-9]+');
