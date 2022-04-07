@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [EventController::class, 'index']);
+Route::get('/events/create', [EventController::class, 'create']);
 
-Route::get('/products/{id}', function ($id) {
-    $search = request('search');
-    return view('product', compact('id', 'search'));
-})->where('id', '[0-9]+');
+Route::get('/products/{id}', [ProductController::class, 'getProduct'])->where('id', '[0-9]+');
