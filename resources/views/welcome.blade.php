@@ -4,6 +4,9 @@
 
 @section('content')
     {{-- esse é um comentário do blade --}}
-    
-    <img src="/img/banner.jpg"/>
+    @foreach ($events as $event)
+        <p>{{ $event->title}} - {{ $event->description }}
+        </p>
+    @endforeach
+    <!--<img src="/img/banner.jpg"/>-->
 @endsection

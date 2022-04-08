@@ -1,0 +1,25 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Event;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class EventFactory extends Factory
+{
+    protected $model = Event::class;
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title' => $this->faker->title,
+            'description' => $this->faker->text,
+            'city' => $this->faker->text,
+            'private' => $this->faker->boolean,
+        ];
+    }
+}

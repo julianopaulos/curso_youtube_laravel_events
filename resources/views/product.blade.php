@@ -1,3 +1,4 @@
+<!--
 @extends('layouts.main')
 
 @section('title', 'Produto')
@@ -6,3 +7,4 @@
     <p>Exibindo produto {{$id}}</p>
     <h5>Usuário pesquisando por: {{$search}}</h5>
 @endsection
+-->
