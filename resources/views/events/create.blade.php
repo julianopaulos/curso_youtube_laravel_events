@@ -5,7 +5,7 @@
 @section('content')
     <div id="event-create-container" class="col-md-6 offset-md-3">
         <h1>Crie o seu evento</h1>
-        <form action="/events" method="POST">
+        <form action="/events" method="POST" enctype="multipart/form-data">
             {{-- 
                 Toda vez que você definir um formulário HTML "POST", "PUT", "PATCH", ou 
                 "DELETE" na sua aplicação, você deve incluir um campo oculto CSRF _token
@@ -13,6 +13,11 @@
                 Por conveniencia, você pode usar a diretiva Blade @csrf para gerar o campo oculto de token
             --}}
             @csrf
+
+            <div class="form-group">
+                <label for="image">Imagem do evento:</label>
+                <input type="file" id="image" name="image" class="form-control-file">
+            </div>
             <div class="form-group">
                 <label for="title">Evento:</label>
                 <input type="text" class="form-control" placeholder="Nome do evento" id="title" name="title">
