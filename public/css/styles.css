@@ -188,6 +188,15 @@ header{
 #info-container #event-submit{
     margin: 20px 0;
 }
+#info-container #items-list{
+    padding-left: 0;
+    list-style: none;
+}
+
+#info-container #items-list li{
+    display: flex;
+}
+
 
 
 /*FOOTER*/
