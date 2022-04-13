@@ -23,6 +23,10 @@
                 <input type="text" class="form-control" placeholder="Nome do evento" id="title" name="title">
             </div>
             <div class="form-group">
+                <label for="date">Data do evento:</label>
+                <input type="date" id="date" name="date" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="city">Cidade:</label>
                 <input type="text" class="form-control" placeholder="Local do evento" id="city" name="city">
             </div>

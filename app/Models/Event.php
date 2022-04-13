@@ -13,4 +13,7 @@ class Event extends Model
     protected $casts = [
         'items' => 'array',
     ];
+
+    //faz o laravel reconhecer o campo e salvar na formatação correta
+    protected $dates = ['date'];
 }
