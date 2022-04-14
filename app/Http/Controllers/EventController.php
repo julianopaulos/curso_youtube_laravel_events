@@ -58,7 +58,8 @@ class EventController extends Controller
 
     public function show($id){
         $event = Event::findOrFail($id);
-        $eventOwner = User::where('id', $event->user_id)->first();
+        $eventOwner = User::where('id', $event->user_id)->first();#$eventOwner->name
+        #$eventOwner = User::where('id', $event->user_id)->first()->toArray(); #$eventOwner['name']
 
         return view('events.show', compact(['event', 'eventOwner']));
     }
