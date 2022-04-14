@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [EventController::class, 'index']);
 Route::get('/events/{id}', [EventController::class, 'show'])->where('id', '[0-9]+');
-Route::get('/events/create', [EventController::class, 'create']);
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 Route::post('/events', [EventController::class, 'store']);
 
 Route::get('/products/{id}', [ProductController::class, 'getProduct'])->where('id', '[0-9]+');

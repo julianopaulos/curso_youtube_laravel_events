@@ -16,4 +16,8 @@ class Event extends Model
 
     //faz o laravel reconhecer o campo e salvar na formatação correta
     protected $dates = ['date'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
