@@ -20,9 +20,12 @@ Route::get('/events/{id}', [EventController::class, 'show'])->where('id', '[0-9]
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 Route::post('/events', [EventController::class, 'store']);
 
-Route::get('/products/{id}', [ProductController::class, 'getProduct'])->where('id', '[0-9]+');
+#Route::get('/products/{id}', [ProductController::class, 'getProduct'])->where('id', '[0-9]+');
 
-Route::middleware([
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+
+#deletada rota criada pelo jetstream
+/*Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
@@ -31,3 +34,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+*/
