@@ -72,6 +72,11 @@ class EventController extends Controller
         return view('events.dashboard', compact(['events']));
     }
 
+    public function destroy($id){
+        Event::find($id)->delete();
+        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+    }
+
     /*public function test($id){
         $search = request('search');
         return view('product', compact('id', 'search'));
