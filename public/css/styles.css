@@ -216,6 +216,13 @@ header{
     display: inline-block;
 }
 
+/*EVENT EDIT*/
+
+.img-preview{
+    width: 100px;
+    margin-top: 20px;
+}
+
 
 /*FOOTER*/
 footer{

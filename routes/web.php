@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [EventController::class, 'index']);
 Route::get('/events/{id}', [EventController::class, 'show'])->where('id', '[0-9]+');
-Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
-Route::delete('/events/{id}', [EventController::class, 'destroy']);
-Route::post('/events', [EventController::class, 'store']);
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->where('id', '[0-9]+')->middleware('auth');
+Route::get('/events/create', [EventController::class, 'create'])->where('id', '[0-9]+')->middleware('auth');
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->where('id', '[0-9]+')->middleware('auth');
+Route::post('/events', [EventController::class, 'store'])->where('id', '[0-9]+')->middleware('auth');
+Route::put('/events/update/{id}', [EventController::class, 'update'])->where('id', '[0-9]+')->middleware('auth');
 
 #Route::get('/products/{id}', [ProductController::class, 'getProduct'])->where('id', '[0-9]+');
 

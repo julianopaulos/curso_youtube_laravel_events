@@ -73,8 +73,30 @@ class EventController extends Controller
     }
 
     public function destroy($id){
-        Event::find($id)->delete();
+        Event::findOrFail($id)->delete();
         return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+    }
+
+    public function edit($id){
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event'));
+    }
+
+    public function update(Request $request){
+        $data = $request->all();
+
+        //image upload
+        if($request->hasFile('image') && $this->validate($request, ['image' => 'required|image|mimes:jpeg,png,jpg|max:4012'])){
+            $requestImage = $request->file('image');
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime('NOW')).".".$extension;
+
+            $requestImage->move(public_path('img/events'), $imageName);
+            $data['image'] = $imageName;
+        }
+        
+        Event::findOrFail($request->id)->update($data);
+        return redirect('/dashboard')->with('msg', 'Evento alterado com sucesso!');
     }
 
     /*public function test($id){
