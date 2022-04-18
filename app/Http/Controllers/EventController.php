@@ -99,6 +99,16 @@ class EventController extends Controller
         return redirect('/dashboard')->with('msg', 'Evento alterado com sucesso!');
     }
 
+    public function joinEvent($id){
+        $user = auth()->user();
+
+        //o nome da função chamada aqui depende do nome que foi colocado na model (neste caso a model user)
+        $user->eventsAsParticipant()->attach($id);
+        $event = Event::findOrFail($id);
+        
+        return redirect('/dashboard')->with('msg', "Sua presença está confirmada no evento {$event->title}");
+    }
+
     /*public function test($id){
         $search = request('search');
         return view('product', compact('id', 'search'));

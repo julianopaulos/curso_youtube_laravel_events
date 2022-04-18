@@ -24,7 +24,10 @@
                             <td>
                                 <a href="/events/{{ $event->id }}">{{ $event->title }}</a>
                             </td>
-                            <td>0</td>
+                            <td>
+                                {{--nesse caso se usa users, porque na model event foi criada a função users--}}
+                                {{ count($event->users) }}
+                            </td>
                             <td>
                                 <div class="action-container">
                                     <a href="/events/edit/{{ $event->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a>
